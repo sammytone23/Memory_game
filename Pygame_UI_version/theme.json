@@ -1,0 +1,30 @@
+{
+     "Button":
+     {
+         "colours":
+         {
+             "normal_bg":"#5C1062",
+             "hovered_bg":"#6E3072",
+             "disabled_bg":"#3A3B35",
+             "selected_bg":"#7C5D7F",
+             "dark_bg":"#3A3B35",
+             "normal_text":"#FFFFFF",
+             "hovered_text":"#FFFFFF",
+             "selected_text":"#FFFFFF",
+             "disabled_text":"#3C3D3A"             
+         },
+         "font":
+         {
+         "name": "mono",
+         "size": "36",
+         "bold": "0",
+         "italic": "0",
+         "regular_path":"mono.ttf"
+         },
+         "misc":
+         {
+            "shape":"rounded_rectangle",
+            "shape_corner_radius":50
+         }
+     }
+ }
