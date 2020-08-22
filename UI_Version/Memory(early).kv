@@ -1,0 +1,53 @@
+#:kivy 1.1.0
+<HomeWidget>:
+    width:640
+    height:480
+    BoxLayout:
+        size: self.parent.size
+        pos: self.parent.pos
+        background_normal:''
+        background_color: 95/256, 96/256, 89/256, 1
+        orientation: 'vertical'
+        width: root.width
+        height: root.height
+        BoxLayout:
+            size_hint: (1.0, 0.2)
+            orientation: 'horizontal'
+            Label:
+                size_hint: (0.2,0.2)
+                size_hint_min:(48,48)
+                size_hint_max:(48,48)
+                font_name: 'larabiefont rg'
+                text: 'temp'
+            Widget:
+            Button:
+                background_normal:'Help.png'
+                size_hint: (1,1)
+                #size_hint_max:(48,48)
+                #size_hint_min:(48,48)
+                
+        Widget:
+        Label:
+            font_name: 'larabiefont rg'
+            font_size: 70  
+            text: 'Memory'
+        BoxLayout:
+            size_hint_y:3
+            Widget:
+            BoxLayout:
+                orientation:'vertical'
+                Widget:
+                Button:
+                    background_normal:''
+                    background_color: 92/256, 16/256, 98/256, 1
+                    font_name: 'larabiefont rg'
+                    font_size: 36
+                    size_hint: (1,0.2)
+                    size_hint_max: (149,48)
+                    size_hint_min: (149,48)
+                    text_size:self.size
+                    halign:'center'
+                    valign:'center'
+                    text: 'Start'
+                Widget:
+            Widget:

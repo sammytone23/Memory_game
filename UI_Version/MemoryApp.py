@@ -5,11 +5,12 @@ from kivy.properties import NumericProperty
 from kivy.clock import Clock
 from kivy.config import Config
 from kivy.core.window import Window
-Window.clearcolor = (95/256, 96/256, 89/256, 1)
 kivy.require("1.9.1") 
 Config.set('graphics', 'resizable', '0') 
 Config.set('graphics', 'width', '640')
 Config.set('graphics', 'height', '480')
+Window.clearcolor = (95/256, 96/256, 89/256, 1)
+Window.size=(640,480)
 
 
 class HomeWidget(Widget):
