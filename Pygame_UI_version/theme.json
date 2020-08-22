@@ -1,5 +1,5 @@
 {
-     "Button":
+     "button":
      {
          "colours":
          {
@@ -7,11 +7,17 @@
              "hovered_bg":"#6E3072",
              "disabled_bg":"#3A3B35",
              "selected_bg":"#7C5D7F",
-             "dark_bg":"#3A3B35",
+             "dark_bg":"#7C5D7F",
              "normal_text":"#FFFFFF",
              "hovered_text":"#FFFFFF",
              "selected_text":"#FFFFFF",
-             "disabled_text":"#3C3D3A"             
+             "disabled_text":"#3C3D3A",
+             "active_text":"#FFFFFF",
+             "normal_border": "#DDDDDD",
+             "hovered_border": "#B0B0B0",
+             "disabled_border": "#808080",
+             "selected_border": "#8080B0",
+             "active_border": "#8080B0"            
          },
          "font":
          {
