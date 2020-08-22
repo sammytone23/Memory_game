@@ -9,11 +9,13 @@
             size_hint: 1.0, 0.2
             orientation: 'horizontal'
             Button:
-                background_normal: 'home.png'
-                background_down: 'home_down.png'
+                background_normal: ''
+                background_down: ''
+                background_color:95/256, 96/256, 89/256, 1
                 size_hint: None, None
                 size: 48,48
-                pos_hint:{'center_x': .2, 'center_y': .2}
+                top:470
+                left:10
             Label:
                 text: 'gap'
             Button:
@@ -21,7 +23,10 @@
                 background_down: 'help_down.png'
                 size_hint: None, None
                 size: 48,48
-                pos_hint:{'center_x': .2, 'center_y': .2}
+                #pos_hint:{'center_x': .3, 'center_y': .2}
+                pos:(582,422)
+                #top:470
+                #left:582
                         
         Label:
             font_size: 70  
@@ -30,9 +35,12 @@
             size_hint: 1,0.2
             text:'gap'
         Button:
-            
-            size_hint: 0.5,0.5
+            background_normal:''
+            background_color:92/255, 16/255, 98/255, 1
             pos_hint:{'center_x': .5, 'center_y': .3}
+            size: 149,48
+            font_family:'mono'
+            font_size:36
             text: 'Start'
         Label:
             size_hint: 1,0.2
