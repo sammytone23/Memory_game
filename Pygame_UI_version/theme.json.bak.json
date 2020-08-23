@@ -25,28 +25,15 @@
          "size": "36",
          "bold": "0",
          "italic": "0",
-         "regular_path":"RobotoMono-Regular.ttf"
+         "regular_path":"mono.ttf"
          },
          "misc":
          {
             "shape":"rounded_rectangle",
-            "shape_corner_radius":"30"
+            "shape_corner_radius":"12"
          }
      },
      "label":
-     {
-        "colours":{
-            "normal_text":"#3A3B35",
-            "dark_bg":"#5E6059"
-        },
-        "font":{
-            "name":"mono",
-            "size":"64",
-            "bold": "0",
-            "italic": "0"
-        }
-     },
-     "label.#round_num":
      {
         "colours":{
             "normal_text":"#3A3B35",
@@ -64,12 +51,12 @@
        "colours":
         {
             "normal_text":"#350038",
-            "dark_bg":"#C4C4C4"
+            "dark_bg":"#7C5D7F"
         },
         "font":
         {
             "name":"mono",
-            "size":"64",
+            "size":"14",
             "bold": "0",
             "italic": "0"
         } 

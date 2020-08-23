@@ -1,7 +1,7 @@
 #Main
 import pygame
 import pygame_gui
-import Home,Help
+import Home,Help,Game
 
 from pygame_gui.elements import UIButton as btn
 
@@ -25,7 +25,17 @@ while not end:
     if event.type==pygame.QUIT:
       end=True
   
-  if dest !='quit':
-    dest=Help.main()
-  else:
-    end=True
+  if dest == 'home':
+    dest = Home.main()
+    if dest == 'quit':
+      break
+  if dest == 'help':
+    dest = Help.main()
+    if dest == 'quit':
+      break
+  if dest == 'start':
+    dest = Game.main()
+    if dest == 'quit':
+      break
+  if dest != 'home' and dest != 'help':
+    break

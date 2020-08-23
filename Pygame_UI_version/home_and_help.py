@@ -6,8 +6,8 @@ import pygame_gui
 from pygame_gui.elements import UIButton as btn
 
 def home_btn(manager):
-  home_btn=btn(relative_rect = pygame.Rect((10,10),(48,48)),
-                text = '⌂',
+  home_btn=btn(relative_rect = pygame.Rect((10,10),(127,48)),
+                text = 'Home',
                 manager=manager)
   return home_btn
 

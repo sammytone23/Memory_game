@@ -1,4 +1,5 @@
-#Home
+#Memorise
+
 import pygame
 import pygame_gui
 
@@ -11,8 +12,8 @@ WIDTH = 640
 
 pygame.init()
 
-def main():
-  pygame.display.set_caption('Home')
+def main(round_num=1):
+  pygame.display.set_caption('Memorise')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
 
   background = pygame.Surface((WIDTH, HEIGHT))
@@ -25,16 +26,17 @@ def main():
 
   objects = {}
 
+  objects['home_btn'] = home_btn(manager)
   objects['help_button'] = help_btn(manager)
 
-  objects['heading'] = lbl(relative_rect = pygame.Rect((204, 91), (231, 75)),
-                          text = 'Memory',
+  objects['round_num']=lbl(relative_rect = pygame.Rect((275, 73), (101, 28)),
+                          text = 'Round '+str(round_num),
+                          manager = manager,
+                          object_id=('small','round_num'))
+  objects['heading'] = lbl(relative_rect = pygame.Rect((147, 107), (346, 75)),
+                          text = 'Memorise!',
                           manager = manager)
-
-  objects['start_button'] = btn(relative_rect = pygame.Rect((246, 299), (149, 48)),
-                          text = 'Start',
-                          manager = manager)
-
+  
   end = False
   while not end:
     time_delta = clock.tick(60) / 1000.0
@@ -45,16 +47,15 @@ def main():
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
+          if event.ui_element == objects['home_button']:
+            print('home')
+            return 'home'
           if event.ui_element == objects['help_button']:
             print('help')
             return 'help'
-          elif event.ui_element == objects['start_button']:
-            print('start')
-            return 'start'
-
-
-
+          
       manager.process_events(event)
+    
     manager.update(time_delta)
     window_surface.blit(background, (0, 0))
     manager.draw_ui(window_surface)
@@ -63,4 +64,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-#main()
