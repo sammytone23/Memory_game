@@ -33,7 +33,8 @@
             "shape_corner_radius":"12"
          }
      },
-     "label":{
+     "label":
+     {
         "colours":{
             "normal_text":"#3A3B35",
             "dark_bg":"#5E6059"
@@ -44,5 +45,20 @@
             "bold": "0",
             "italic": "0"
         }
+     },
+     "label.#help_text":
+     {
+       "colours":
+        {
+            "normal_text":"#350038",
+            "dark_bg":"#7C5D7F"
+        },
+        "font":
+        {
+            "name":"mono",
+            "size":"14",
+            "bold": "0",
+            "italic": "0"
+        } 
      }
  }
