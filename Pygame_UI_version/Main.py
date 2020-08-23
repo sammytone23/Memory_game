@@ -1,6 +1,7 @@
 #Main
 import pygame
 import pygame_gui
+import Home
 
 from pygame_gui.elements import UIButton as btn
 
@@ -17,15 +18,14 @@ background.fill(pygame.Color('#5E6059'))
 
 manager = pygame_gui.UIManager((640, 480),'theme.json')
 
-
-
-
-
 end=False
+dest='home'
 while not end:
   for event in pygame.event.get():
     if event.type==pygame.QUIT:
       end=True
-
-    if event.type == pygame.USEREVENT:
-      if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
+  
+  if dest !='quit':
+    dest=Home.main()
+  else:
+    end=True

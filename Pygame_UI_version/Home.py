@@ -5,6 +5,7 @@ import pygame_gui
 
 from home_and_help import  home_btn,help_btn
 from pygame_gui.elements import UIButton as btn
+from pygame_gui.elements.ui_label import UILabel as lbl
 
 HEIGHT=480
 WIDTH=640
@@ -23,17 +24,28 @@ def main():
   
   clock = pygame.time.Clock()
 
-  hel=help_btn(manager)
+  objects={}
+
+  objects['help_button']=help_btn(manager)
+
+  objects['Heading']=lbl(relative_rect=pygame.Rect((204,91),(231,75)),
+                          text='Memory',
+                          manager=manager)
+  
 
   end=False
   while not end:
     time_delta = clock.tick(60)/1000.0
     for event in pygame.event.get(): 
       if event.type==pygame.QUIT:
-        end=True
+        print('quit')
+        return 'quit'
 
       if event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
+          if event.ui_element == objects['help_button']:
+            print('help')
+            return 'help'
 
 
       manager.process_events(event)
@@ -42,3 +54,5 @@ def main():
     manager.draw_ui(window_surface)
 
     pygame.display.update()
+
+main()

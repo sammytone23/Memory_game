@@ -30,7 +30,18 @@
          "misc":
          {
             "shape":"rounded_rectangle",
-            "shape_corner_radius":50
+            "shape_corner_radius":"12"
          }
+     },
+     "label":{
+        "colours":{
+            "normal_text":"3A3B35"
+        },
+        "font":{
+            "name":"mono",
+            "size":"64",
+            "bold": "0",
+            "italic": "0"
+        }
      }
  }
