@@ -2,7 +2,7 @@
 
 import pygame
 import pygame_gui
-import Memorise
+import Round
 
 from home_and_help import  home_btn,help_btn
 from pygame_gui.elements import UIButton as btn
@@ -20,7 +20,7 @@ def main():
   end = False
   while not end:
     if stage=='mem':
-      stage=Memorise.main()
+      stage=Round.main()
     else:
       return stage
 

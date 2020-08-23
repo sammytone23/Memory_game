@@ -12,7 +12,7 @@ WIDTH = 640
 
 pygame.init()
 
-def main(round_num=1):
+def main(round_num=1,rand='*cH1;@'):
   pygame.display.set_caption('Memorise')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -32,11 +32,23 @@ def main(round_num=1):
   objects['round_num']=lbl(relative_rect = pygame.Rect((275, 73), (101, 28)),
                           text = 'Round '+str(round_num),
                           manager = manager,
-                          object_id=('small','round_num'))
+                          object_id='small')
   objects['heading'] = lbl(relative_rect = pygame.Rect((147, 107), (346, 75)),
                           text = 'Memorise!',
                           manager = manager)
-  
+  objects['characters']=[]
+  positions=[((119,193),(48,100)),((190,193),(48,100)),((261,193),(48,100)),((332,193),(48,100)),((403,193),(48,100)),((474,193),(48,100))]
+  for p,c in enumerate(rand):
+    objects['characters'].append(lbl(relative_rect = pygame.Rect(positions[p][0],positions[p][1]),
+                          text = c,
+                          manager = manager,
+                          object_id='character_display'))
+
+  objects['round_num']=lbl(relative_rect = pygame.Rect((219, 379), (202, 28)),
+                          text = '# seconds left',
+                          manager = manager,
+                          object_id='small')
+
   end = False
   while not end:
     time_delta = clock.tick(60) / 1000.0

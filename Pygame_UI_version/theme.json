@@ -46,11 +46,24 @@
             "italic": "0"
         }
      },
-     "label.#round_num":
+     "small":
      {
         "colours":{
             "normal_text":"#3A3B35",
             "dark_bg":"#5E6059"
+        },
+        "font":{
+            "name":"mono",
+            "size":"24",
+            "bold": "0",
+            "italic": "0"
+        }
+     },
+     "character_display":
+     {
+        "colours":{
+            "normal_text":"#350038",
+            "dark_bg":"#C4C4C4"
         },
         "font":{
             "name":"mono",
