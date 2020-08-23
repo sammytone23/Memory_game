@@ -35,7 +35,8 @@
      },
      "label":{
         "colours":{
-            "normal_text":"3A3B35"
+            "normal_text":"#3A3B35",
+            "dark_bg":"#5E6059"
         },
         "font":{
             "name":"mono",
