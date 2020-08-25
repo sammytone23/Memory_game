@@ -35,11 +35,13 @@
      },
      "label":
      {
-        "colours":{
+        "colours":
+        {
             "normal_text":"#3A3B35",
             "dark_bg":"#5E6059"
         },
-        "font":{
+        "font":
+        {
             "name":"mono",
             "size":"64",
             "bold": "0",
@@ -48,11 +50,13 @@
      },
      "small":
      {
-        "colours":{
+        "colours":
+        {
             "normal_text":"#3A3B35",
             "dark_bg":"#5E6059"
         },
-        "font":{
+        "font":
+        {
             "name":"mono",
             "size":"24",
             "bold": "0",
@@ -61,13 +65,51 @@
      },
      "character_display":
      {
-        "colours":{
+        "colours":
+        {
             "normal_text":"#350038",
             "dark_bg":"#C4C4C4"
         },
-        "font":{
+        "font":
+        {
             "name":"mono",
             "size":"64",
+            "bold": "0",
+            "italic": "0"
+        }
+     },
+     "arrow_btn":
+     {
+        "colours":
+        {
+            "normal_text":"#FFFFFF",
+            "dark_bg":"#7C5D7F"
+        },
+        "font":
+        {
+            "name":"mono",
+            "size":"10",
+            "bold": "0",
+            "italic": "0"
+        },
+        "misc":
+         {
+            "shape":"rectangle"
+         }
+     },
+     "drop_down_menu":
+     {
+        "colours":
+        {
+            "dark_bg":"#7C5D7F",
+            "dark_text":"#6E3072",
+            "normal_bg":"#6E3072",
+            "normal_text":"#350038"
+        },
+        "font":
+        {
+            "name":"mono",
+            "size":"11",
             "bold": "0",
             "italic": "0"
         }
