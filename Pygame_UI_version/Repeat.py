@@ -13,20 +13,20 @@ WIDTH = 640
 
 pygame.init()
 
-def increment_character(c,inc):
-  if c in '0123456789':
-    return str((int(c)+inc)%10)
-  elif c in 'abcdefghijklmnopqrstuvwxyz':
-    return chr((ord(c)-(ord('a')-1)+inc%26)+ord('a')-1)
-  elif c in 'abcdefghijklmnopqrstuvwxyz'.upper():
-    return chr((ord(c)-(ord('A')-1)+inc%26)+ord('A')-1)
-  elif c in '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~':
-    pos='!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'.find(c)
+def increment_character(ch,inc):
+  if ch in '0123456789':
+    return str((int(ch)+inc)%10)
+  elif ch in 'abcdefghijklmnopqrstuvwxyz':
+    return chr((ord(ch)-(ord('a')-1)+inc%26)+ord('a')-1)
+  elif ch in 'abcdefghijklmnopqrstuvwxyz'.upper():
+    return chr((ord(ch)-(ord('A')-1)+inc%26)+ord('A')-1)
+  elif ch in '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~':
+    pos='!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'.find(ch)
     pos+=inc
     pos%=len('!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~')
     return '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'[pos]
 def arrow_pressed(event,objects):
-  for pos in objects['characters']:
+  for pos in range(len(objects['characters'])):
     if objects['characters'][pos]['up_button']:
       out_c=increment_character(objects['characters'][pos]['character'].text,1)
       return [True,pos,out_c]
@@ -102,7 +102,8 @@ def Repeat(round_num=1,rand='*cH1;@'):
             return 'help'
           arp=arrow_pressed(event,objects)
           if arp[0]:
-            objects['characters'][arp[1]].set_text(arp[2])
+            print(arp)
+            objects['characters'][arp[1]]['character'].set_text(arp[2])
           
       manager.process_events(event)
     

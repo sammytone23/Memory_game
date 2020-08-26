@@ -10,14 +10,14 @@ def up_btn(manager,x):
   home_btn=btn(relative_rect = pygame.Rect((x,180),(20,20)),
                 text = '/\\',
                 manager=manager,
-                object_id='arrow_btn')
+                object_id='up_arrow_btn')
   return home_btn
 
 def dn_btn(manager,x):
   help_btn=btn(relative_rect = pygame.Rect((x,307),(20,20)),
                 text = '\\/',
                 manager=manager,
-                object_id='arrow_btn')
+                object_id='dn_arrow_btn')
   return help_btn
 
 def type_drp(manager,x):
