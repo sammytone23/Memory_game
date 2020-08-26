@@ -41,6 +41,8 @@ def main(round_num=1,rand='*cH1;@'):
   positions=[((119,193),(48,100)),((190,193),(48,100)),((261,193),(48,100)),((332,193),(48,100)),((403,193),(48,100)),((474,193),(48,100))]
   arrow_btn_pos=[132,223,294,365,416,507]
   drpdn_pos=[118,189,260,331,402,473]
+  
+
   for p,c in enumerate('000000'):
     group={}
     group['up_button']=up_btn(manager,arrow_btn_pos[p])

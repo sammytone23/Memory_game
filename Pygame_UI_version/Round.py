@@ -1,6 +1,6 @@
 #Round
 
-import Memorise
+import Memorise,Repeat
 from random import choice as c
 
 def randstr(length):
@@ -12,4 +12,11 @@ def randstr(length):
 
 def main(round_num=1):
   rand=randstr(6)
-  Memorise.main(round_num=round_num,rand=rand)
+  mem=Memorise.main(round_num=round_num,rand=rand)
+  if mem!='cont':
+    return mem
+  rep=Repeat.main(round_num=round_num,rand=rand)
+  if rep in ['home','help', 'quit']:
+    return rep
+  
+

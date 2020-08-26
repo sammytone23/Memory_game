@@ -92,9 +92,10 @@
             "bold": "0",
             "italic": "0"
         },
-        "misc":
+         "misc":
          {
-            "shape":"rectangle"
+            "shape":"rounded_rectangle",
+            "shape_corner_radius":"0"
          }
      },
      "drop_down_menu":

@@ -14,15 +14,17 @@ WIDTH = 640
 pygame.init()
 
 def main():
-  stage='mem'
+  # stage='mem'
   round_num=1
 
-  end = False
-  while not end:
-    if stage=='mem':
-      stage=Round.main()
-    else:
-      return stage
+  # end = False
+  # while not end:
+  #   if stage=='mem':
+  #     stage=Round.main()
+  #   else:
+  #     return stage
+  for round_num in range(6):
+    score=Round.main(round_num=round_num)
 
 if __name__ == '__main__':
   main()
