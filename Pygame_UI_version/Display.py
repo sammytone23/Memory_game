@@ -14,7 +14,7 @@ pygame.init()
 def high_score(score):
   file=open('high_score.txt','w')
 
-  if score>file:
+  if score>file.read():
     file.write(score)
   return file[0]
 
@@ -38,7 +38,7 @@ def Display(score):
   objects['home_button'] = home_btn(manager)
 
   objects['score'] = lbl(relative_rect = pygame.Rect((74, 98), (491, 56)),
-                          text = 'Your score was: '+score,
+                          text = 'Your score was: '+str(score),
                           manager = manager,
                           object_id='med')
 
@@ -86,4 +86,4 @@ def Display(score):
     pygame.display.update()
 
 if __name__ == '__main__':
-  Display()
+  Display(2)

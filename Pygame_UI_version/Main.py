@@ -26,16 +26,17 @@ while not end:
       end=True
   
   if dest == 'home':
-    dest = Home.main()
+    dest = Home.Home()
     if dest == 'quit':
       break
   if dest == 'help':
-    dest = Help.main()
+    dest = Help.Help()
     if dest == 'quit':
       break
   if dest == 'start':
-    dest = Game.main()
+    dest = Game.Game()
     if dest == 'quit':
       break
   if dest != 'home' and dest != 'help':
     break
+pygame.quit()

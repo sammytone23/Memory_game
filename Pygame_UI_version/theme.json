@@ -125,9 +125,16 @@
         "font":
         {
             "name":"mono",
-            "size":"11",
+            "size":"6",
             "bold": "0",
             "italic": "0"
+        }
+     },
+     "drop_down_menu.#expand_button":
+     {
+        "misc":
+        {
+            "visible":"false"
         }
      },
      "text_box":

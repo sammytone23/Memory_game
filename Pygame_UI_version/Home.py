@@ -11,7 +11,7 @@ WIDTH = 640
 
 pygame.init()
 
-def main():
+def Home():
   pygame.display.set_caption('Home')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -62,5 +62,5 @@ def main():
     pygame.display.update()
 
 if __name__ == '__main__':
-  main()
+  Home()
 #main()

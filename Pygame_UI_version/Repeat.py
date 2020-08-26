@@ -13,6 +13,32 @@ WIDTH = 640
 
 pygame.init()
 
+def increment_character(c,inc):
+  if c in '0123456789':
+    return str((int(c)+inc)%10)
+  elif c in 'abcdefghijklmnopqrstuvwxyz':
+    return chr((ord(c)-(ord('a')-1)+inc%26)+ord('a')-1)
+  elif c in 'abcdefghijklmnopqrstuvwxyz'.upper():
+    return chr((ord(c)-(ord('A')-1)+inc%26)+ord('A')-1)
+  elif c in '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~':
+    pos='!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'.find(c)
+    pos+=inc
+    pos%=len('!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~')
+    return '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'[pos]
+def arrow_pressed(event,objects):
+  for pos in objects['characters']:
+    if objects['characters'][pos]['up_button']:
+      out_c=increment_character(objects['characters'][pos]['character'].text,1)
+      return [True,pos,out_c]
+    elif objects['characters'][pos]['down_button']:
+      out_c=increment_character(objects['characters'][pos]['character'].text,-1)
+      return [True,pos,out_c]
+  return [False]
+
+
+
+
+
 def Repeat(round_num=1,rand='*cH1;@'):
   pygame.display.set_caption('Memorise')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -64,8 +90,7 @@ def Repeat(round_num=1,rand='*cH1;@'):
     time_delta = clock.tick(60) / 1000.0
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
-        print('quit')
-        return 'quit'
+        pygame.quit()
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
@@ -75,6 +100,9 @@ def Repeat(round_num=1,rand='*cH1;@'):
           if event.ui_element == objects['help_button']:
             print('help')
             return 'help'
+          arp=arrow_pressed(event,objects)
+          if arp[0]:
+            objects['characters'][arp[1]].set_text(arp[2])
           
       manager.process_events(event)
     

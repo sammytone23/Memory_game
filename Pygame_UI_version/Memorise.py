@@ -50,8 +50,12 @@ def Memorise(round_num=1,rand='*cH1;@'):
                           object_id='small')
 
   end = False
+  tomer=0
   while not end:
     time_delta = clock.tick(60) / 1000.0
+    timer+=0.017
+    if timer>=6:
+      return 'cont'
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
         print('quit')
