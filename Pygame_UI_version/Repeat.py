@@ -13,7 +13,7 @@ WIDTH = 640
 
 pygame.init()
 
-def main(round_num=1,rand='*cH1;@'):
+def Repeat(round_num=1,rand='*cH1;@'):
   pygame.display.set_caption('Memorise')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -85,4 +85,4 @@ def main(round_num=1,rand='*cH1;@'):
     pygame.display.update()
 
 if __name__ == '__main__':
-  main()
+  Repeat()

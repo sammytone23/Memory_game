@@ -13,7 +13,7 @@ WIDTH = 640
 
 pygame.init()
 
-def main():
+def Game():
   # stage='mem'
   round_num=1
 
@@ -24,7 +24,7 @@ def main():
   #   else:
   #     return stage
   for round_num in range(6):
-    score=Round.main(round_num=round_num)
+    score=Round.Round(round_num=round_num)
 
 if __name__ == '__main__':
-  main()
+  Game()

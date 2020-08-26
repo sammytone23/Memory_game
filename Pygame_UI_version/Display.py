@@ -1,5 +1,4 @@
-#Memorise
-
+#display
 import pygame
 import pygame_gui
 
@@ -12,8 +11,17 @@ WIDTH = 640
 
 pygame.init()
 
-def Memorise(round_num=1,rand='*cH1;@'):
-  pygame.display.set_caption('Memorise')
+def high_score(score):
+  file=open('high_score.txt','w')
+
+  if score>file:
+    file.write(score)
+  return file[0]
+
+
+
+def Display(score):
+  pygame.display.set_caption('Home')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
 
   background = pygame.Surface((WIDTH, HEIGHT))
@@ -26,29 +34,28 @@ def Memorise(round_num=1,rand='*cH1;@'):
 
   objects = {}
 
-  objects['home_btn'] = home_btn(manager)
   objects['help_button'] = help_btn(manager)
+  objects['home_button'] = home_btn(manager)
 
-  objects['round_num']=lbl(relative_rect = pygame.Rect((275, 73), (101, 28)),
-                          text = 'Round '+str(round_num),
+  objects['score'] = lbl(relative_rect = pygame.Rect((74, 98), (491, 56)),
+                          text = 'Your score was: '+score,
+                          manager = manager,
+                          object_id='med')
+
+  objects['high_score'] = lbl(relative_rect = pygame.Rect((204, 91), (231, 75)),
+                          text = 'High score: '+high_score(score),
                           manager = manager,
                           object_id='small')
-  objects['heading'] = lbl(relative_rect = pygame.Rect((147, 107), (346, 75)),
-                          text = 'Memorise!',
+
+  objects['cong']= lbl(relative_rect = pygame.Rect((190, 212), (260, 56)),
+                          text = 'Good job!',
+                          manager = manager,
+                          object_id='med')
+
+  objects['start_button'] = btn(relative_rect = pygame.Rect((162, 326), (315, 48)),
+                          text = 'Play again?',
                           manager = manager)
-  objects['characters']=[]
-  positions=[((119,193),(48,100)),((190,193),(48,100)),((261,193),(48,100)),((332,193),(48,100)),((403,193),(48,100)),((474,193),(48,100))]
-  for p,c in enumerate(rand):
-    objects['characters'].append(lbl(relative_rect = pygame.Rect(positions[p][0],positions[p][1]),
-                          text = c,
-                          manager = manager,
-                          object_id='character_display'))
-
-  objects['round_num']=lbl(relative_rect = pygame.Rect((219, 379), (202, 28)),
-                          text = '# seconds left',
-                          manager = manager,
-                          object_id='small')
-
+  
   end = False
   while not end:
     time_delta = clock.tick(60) / 1000.0
@@ -59,15 +66,19 @@ def Memorise(round_num=1,rand='*cH1;@'):
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
-          if event.ui_element == objects['home_button']:
-            print('home')
-            return 'home'
           if event.ui_element == objects['help_button']:
             print('help')
             return 'help'
-          
+          elif event.ui_element == objects['home_button']:
+            print('home')
+            return 'home'
+          elif event.ui_element == objects['start_button']:
+            print('start')
+            return 'start'
+
+
+
       manager.process_events(event)
-    
     manager.update(time_delta)
     window_surface.blit(background, (0, 0))
     manager.draw_ui(window_surface)
@@ -75,4 +86,4 @@ def Memorise(round_num=1,rand='*cH1;@'):
     pygame.display.update()
 
 if __name__ == '__main__':
-  Memorise()
+  Display()

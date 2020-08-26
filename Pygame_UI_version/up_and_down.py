@@ -25,5 +25,5 @@ def type_drp(manager,x):
                   starting_option='0-9',
                   relative_rect=pygame.Rect(x,193,48,20),
                   manager=manager,
-                  object_id='drop_down_menu')
+                  object_id='choice')
   return dropdown
