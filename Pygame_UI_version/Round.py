@@ -18,5 +18,5 @@ def Round(round_num=1):
   rep=Repeat.Repeat(round_num=round_num,rand=rand)
   if rep in ['home','help', 'quit']:
     return rep
-  disp=Display.Display(rep)
+  return rep
 

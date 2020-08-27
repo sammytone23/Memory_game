@@ -2,6 +2,7 @@
 
 import pygame
 import pygame_gui
+from math import floor
 
 from home_and_help import  home_btn,help_btn
 from pygame_gui.elements import UIButton as btn
@@ -50,7 +51,7 @@ def Memorise(round_num=1,rand='*cH1;@'):
                           object_id='small')
 
   end = False
-  tomer=0
+  timer=0
   while not end:
     time_delta = clock.tick(60) / 1000.0
     timer+=0.017
@@ -59,7 +60,7 @@ def Memorise(round_num=1,rand='*cH1;@'):
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
         print('quit')
-        return 'quit'
+        pygame.quit()
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
@@ -69,9 +70,13 @@ def Memorise(round_num=1,rand='*cH1;@'):
           if event.ui_element == objects['help_button']:
             print('help')
             return 'help'
-          
+      
+      
       manager.process_events(event)
     
+    orig=objects['round_num'].text.split(' ',1)
+    orig[0]=str(floor(6-timer))
+    objects['round_num'].set_text(' '.join(orig))
     manager.update(time_delta)
     window_surface.blit(background, (0, 0))
     manager.draw_ui(window_surface)

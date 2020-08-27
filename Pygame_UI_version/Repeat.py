@@ -17,9 +17,15 @@ def increment_character(ch,inc):
   if ch in '0123456789':
     return str((int(ch)+inc)%10)
   elif ch in 'abcdefghijklmnopqrstuvwxyz':
-    return chr((ord(ch)-(ord('a')-1)+inc%26)+ord('a')-1)
+    pos='abcdefghijklmnopqrstuvwxyz'.find(ch)
+    pos+=inc
+    pos%=len('abcdefghijklmnopqrstuvwxyz')
+    return 'abcdefghijklmnopqrstuvwxyz'[pos]
   elif ch in 'abcdefghijklmnopqrstuvwxyz'.upper():
-    return chr((ord(ch)-(ord('A')-1)+inc%26)+ord('A')-1)
+    pos='abcdefghijklmnopqrstuvwxyz'.upper().find(ch)
+    pos+=inc
+    pos%=len('abcdefghijklmnopqrstuvwxyz')
+    return 'abcdefghijklmnopqrstuvwxyz'.upper()[pos]
   elif ch in '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~':
     pos='!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'.find(ch)
     pos+=inc
@@ -27,16 +33,31 @@ def increment_character(ch,inc):
     return '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'[pos]
 def arrow_pressed(event,objects):
   for pos in range(len(objects['characters'])):
-    if objects['characters'][pos]['up_button']:
+    if event.ui_element==objects['characters'][pos]['up_button']:
       out_c=increment_character(objects['characters'][pos]['character'].text,1)
       return [True,pos,out_c]
-    elif objects['characters'][pos]['down_button']:
+    elif event.ui_element==objects['characters'][pos]['down_button']:
       out_c=increment_character(objects['characters'][pos]['character'].text,-1)
       return [True,pos,out_c]
   return [False]
 
+def dropdown_changed(event,objects):
+  for pos in range(len(objects['characters'])):
+    if event.ui_element==objects['characters'][pos]['type_dropdown']:
+      typ=objects['characters'][pos]['type_dropdown'].selected_option
+      if typ in ['0-9','a-z','A-Z']:
+        out_c=typ[0]
+      else:
+        out_c='!'
+      return [True,pos,out_c]
+  return [False]
 
-
+def score(objects,rand):
+  out=0
+  for p,c in enumerate(rand):
+    if c==objects['characters'][p]['character'].text:
+      out+=1
+  return out
 
 
 def Repeat(round_num=1,rand='*cH1;@'):
@@ -80,16 +101,17 @@ def Repeat(round_num=1,rand='*cH1;@'):
                           object_id='character_display')
     objects['characters'].append(group)
 
-  objects['round_num']=lbl(relative_rect = pygame.Rect((219, 379), (202, 28)),
-                          text = '# seconds left',
+  objects['done_button']=btn(relative_rect = pygame.Rect((256, 330), (127, 48)),
+                          text = 'Done',
                           manager = manager,
-                          object_id='small')
+                          object_id='big_button')
 
   end = False
   while not end:
     time_delta = clock.tick(60) / 1000.0
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
+        print('quit')
         pygame.quit()
 
       elif event.type == pygame.USEREVENT:
@@ -100,10 +122,20 @@ def Repeat(round_num=1,rand='*cH1;@'):
           if event.ui_element == objects['help_button']:
             print('help')
             return 'help'
+          if event.ui_element == objects['done_button']:
+            print('done')
+            out=score(objects,rand)
+            print(out)
+            return out
           arp=arrow_pressed(event,objects)
           if arp[0]:
             print(arp)
             objects['characters'][arp[1]]['character'].set_text(arp[2])
+        elif event.user_type==pygame_gui.UI_DROP_DOWN_MENU_CHANGED:
+          drp=dropdown_changed(event,objects)
+          if drp[0]:
+            print(drp)
+            objects['characters'][drp[1]]['character'].set_text(drp[2])
           
       manager.process_events(event)
     

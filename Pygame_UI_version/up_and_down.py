@@ -21,7 +21,7 @@ def dn_btn(manager,x):
   return help_btn
 
 def type_drp(manager,x):
-  dropdown=drpdn(options_list=['0-9','a-z','A-Z','Special'],
+  dropdown=drpdn(options_list=['0-9','a-z','A-Z','Spc.'],
                   starting_option='0-9',
                   relative_rect=pygame.Rect(x,193,48,20),
                   manager=manager,

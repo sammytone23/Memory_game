@@ -12,11 +12,17 @@ WIDTH = 640
 pygame.init()
 
 def high_score(score):
-  file=open('high_score.txt','w')
+  hs=open('high_score.txt','r').read()
+  f=open('high_score.txt','w')
+  if score>int(hs):
+    f.write(score)
+    f.close()
+    return score
+  else:
+    f.write(hs)
+    f.close()
+    return hs
 
-  if score>file.read():
-    file.write(score)
-  return file[0]
 
 
 
@@ -42,7 +48,7 @@ def Display(score):
                           manager = manager,
                           object_id='med')
 
-  objects['high_score'] = lbl(relative_rect = pygame.Rect((204, 91), (231, 75)),
+  objects['high_score'] = lbl(relative_rect = pygame.Rect((219, 169), (202, 28)),
                           text = 'High score: '+high_score(score),
                           manager = manager,
                           object_id='small')
@@ -54,7 +60,8 @@ def Display(score):
 
   objects['start_button'] = btn(relative_rect = pygame.Rect((162, 326), (315, 48)),
                           text = 'Play again?',
-                          manager = manager)
+                          manager = manager,
+                          object_id='big_button')
   
   end = False
   while not end:
@@ -62,7 +69,7 @@ def Display(score):
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
         print('quit')
-        return 'quit'
+        pygame.quit()
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
@@ -86,4 +93,4 @@ def Display(score):
     pygame.display.update()
 
 if __name__ == '__main__':
-  Display(2)
+  Display(0)

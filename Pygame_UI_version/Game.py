@@ -2,7 +2,7 @@
 
 import pygame
 import pygame_gui
-import Round
+import Round,Display
 
 from home_and_help import  home_btn,help_btn
 from pygame_gui.elements import UIButton as btn
@@ -23,8 +23,14 @@ def Game():
   #     stage=Round.main()
   #   else:
   #     return stage
+  score=0
   for round_num in range(6):
-    score=Round.Round(round_num=round_num)
+    rnd=Round.Round(round_num=round_num)
+    if rnd in ['home','help']:
+      return rnd
+    score+=rnd
+  disp=Display.Display(score)
+  return disp
 
 if __name__ == '__main__':
   Game()

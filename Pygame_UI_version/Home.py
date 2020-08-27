@@ -33,7 +33,8 @@ def Home():
 
   objects['start_button'] = btn(relative_rect = pygame.Rect((246, 299), (149, 48)),
                           text = 'Start',
-                          manager = manager)
+                          manager = manager,
+                          object_id='big_button')
 
   end = False
   while not end:
@@ -41,7 +42,7 @@ def Home():
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
         print('quit')
-        return 'quit'
+        pygame.quit()
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
