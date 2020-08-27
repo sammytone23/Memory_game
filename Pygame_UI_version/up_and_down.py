@@ -7,14 +7,14 @@ from pygame_gui.elements import UIButton as btn
 from pygame_gui.elements.ui_drop_down_menu import UIDropDownMenu as drpdn
 
 def up_btn(manager,x):
-  home_btn=btn(relative_rect = pygame.Rect((x,180),(20,20)),
+  home_btn=btn(relative_rect = pygame.Rect((x,173),(20,20)),
                 text = '/\\',
                 manager=manager,
                 object_id='up_arrow_btn')
   return home_btn
 
 def dn_btn(manager,x):
-  help_btn=btn(relative_rect = pygame.Rect((x,307),(20,20)),
+  help_btn=btn(relative_rect = pygame.Rect((x,293),(20,20)),
                 text = '\\/',
                 manager=manager,
                 object_id='dn_arrow_btn')

@@ -86,7 +86,7 @@ def Repeat(round_num=1,rand='*cH1;@'):
                           manager = manager)
   objects['characters']=[]
   positions=[((119,193),(48,100)),((190,193),(48,100)),((261,193),(48,100)),((332,193),(48,100)),((403,193),(48,100)),((474,193),(48,100))]
-  arrow_btn_pos=[132,223,294,365,416,507]
+  arrow_btn_pos=[132,203,274,345,416,487]
   drpdn_pos=[118,189,260,331,402,473]
   
 
@@ -111,30 +111,30 @@ def Repeat(round_num=1,rand='*cH1;@'):
     time_delta = clock.tick(60) / 1000.0
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
-        print('quit')
+        #print('quit')
         pygame.quit()
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
           if event.ui_element == objects['home_button']:
-            print('home')
+            #print('home')
             return 'home'
           if event.ui_element == objects['help_button']:
-            print('help')
+            #print('help')
             return 'help'
           if event.ui_element == objects['done_button']:
-            print('done')
+            #print('done')
             out=score(objects,rand)
-            print(out)
+            #print(out)
             return out
           arp=arrow_pressed(event,objects)
           if arp[0]:
-            print(arp)
+            #print(arp)
             objects['characters'][arp[1]]['character'].set_text(arp[2])
         elif event.user_type==pygame_gui.UI_DROP_DOWN_MENU_CHANGED:
           drp=dropdown_changed(event,objects)
           if drp[0]:
-            print(drp)
+            #print(drp)
             objects['characters'][drp[1]]['character'].set_text(drp[2])
           
       manager.process_events(event)
