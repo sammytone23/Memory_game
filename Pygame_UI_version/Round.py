@@ -12,10 +12,10 @@ def randstr(length):
     out+=random.choice(characters)
   return out
 
-def Round(round_num=1):
+def Round(round_num=1,length=10):
   rand=randstr(6)
   #run the memorise screen
-  mem=Memorise.Memorise(round_num=round_num,rand=rand)
+  mem=Memorise.Memorise(round_num=round_num,rand=rand,length=length)
   #make sure it's supposed to continue
   if mem!='cont':
     return mem

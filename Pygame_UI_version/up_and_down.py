@@ -8,19 +8,19 @@ from pygame_gui.elements.ui_drop_down_menu import UIDropDownMenu as drpdn
 
 # the up button used in 'Repeat.py'
 def up_btn(manager,x):
-  home_btn=btn(relative_rect = pygame.Rect((x,173),(20,20)),
+  up_button=btn(relative_rect = pygame.Rect((x,173),(20,20)),
                 text = '/\\',
                 manager=manager,
                 object_id='up_arrow_btn')
-  return home_btn
+  return up_button
 
 # the down button used in 'Repeat.py'
 def dn_btn(manager,x):
-  help_btn=btn(relative_rect = pygame.Rect((x,293),(20,20)),
+  dn_button=btn(relative_rect = pygame.Rect((x,293),(20,20)),
                 text = '\\/',
                 manager=manager,
                 object_id='dn_arrow_btn')
-  return help_btn
+  return dn_button
 
 # the dropdown used in 'Repeat.py'
 def type_drp(manager,x):

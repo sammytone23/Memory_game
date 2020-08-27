@@ -1,5 +1,5 @@
 #Main
-
+difficulty = int(input('difficulty 2-20: '))
 
 #Imports
 import pygame
@@ -17,12 +17,12 @@ WIDTH=640
 pygame.init()
 
 pygame.display.set_caption('Memory')
-window_surface = pygame.display.set_mode((640, 480))
+window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
 
-background = pygame.Surface((640, 480))
+background = pygame.Surface((WIDTH, HEIGHT))
 background.fill(pygame.Color('#5E6059'))
 
-manager = pygame_gui.UIManager((640, 480),'theme.json')
+manager = pygame_gui.UIManager((WIDTH, HEIGHT),'theme.json')
 
 #Main loop 
 end=False
@@ -41,7 +41,7 @@ while not end:
     if dest == 'quit':
       break
   if dest == 'start':
-    dest = Game.Game()
+    dest = Game.Game(difficulty)
     if dest == 'quit':
       break
   if dest != 'home' and dest != 'help':

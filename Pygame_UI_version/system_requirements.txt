@@ -1,0 +1,3 @@
+Appearance: program needs to have a user-friendly GUI (consistent appearance, use of whitespace, drop-down menus, simple navigation, and a help page). 
+Functionality: programs need to carry out the required tasks and to minimise the user’s actions as much as possible. 
+System requirements: Any operating system, at least 1Gb ram, at least 1ghz processor, at least 2Gb free space.

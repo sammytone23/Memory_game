@@ -1,0 +1,160 @@
+#Algorithms
+BEGIN
+    import pygame, pygame_gui, round
+    HEIGHT = 480
+    WIDTH = 640
+    initialise pygame
+    end = False:
+    dest = 'home'
+    WHILE not end
+        IF the quit button was pressed THEN
+            end = True
+        END IF
+        CASEWHERE dest evaluates to
+            'home': dest = _home_
+            'help': dest = _help_
+            'start': dest = _game_
+        OTHERWISE: end = True
+        END CASE
+    END WHILE
+END
+ 
+BEGIN game
+    FOR round_num = 1 to 6
+        Round (pass round_num)
+    NEXT
+END game
+ 
+BEGIN home
+    end = False
+    WHILE not end
+        DISPLAY BUTTONS
+        IF help button pressed THEN
+                return 'help'
+        ELSE
+                IF start button pressed THEN
+                    return 'start'
+                ELSE
+                    end = True
+                END IF
+        END IF
+    END WHILE
+END home
+
+BEGIN Round
+    GET round_num
+    length = 6
+    rand = randstr (pass length)
+    mem = memorise (pass round_num, rand)
+    IF mem != 'cont' THEN
+        return mem
+    END IF
+    rep = repeat (pass round_num, rand)
+    IF rep == 'home' or rep = 'help' or rep = 'quit' THEN
+        return rep
+    END IF
+END Round
+ 
+BEGIN randstr
+    GET length
+    characters = '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+    out = ''
+    FOR i = 0 to length-1
+        out = out + random choice from characters
+    NEXT
+    return out
+END randstr
+ 
+BEGIN help
+    end = False
+    WHILE not end
+        DISPLAY Help Instructions
+        DISPLAY Buttons
+        IF help button pressed THEN
+                return 'help'
+        END IF
+    END WHILE
+END help
+
+BEGIN memorise
+    GET round_num
+    GET rand
+    end = False
+    GET system_time as time
+    timer = 0
+    WHILE not end
+        Display Buttons
+        Display rand
+        
+        GET system_time as new_time
+        IF new_time - time = 1 THEN
+            time=new_time
+            timer += 1
+        END IF
+        IF timer>=6 THEN
+            return 'cont'
+            end = True
+        END IF
+        IF home_button pressed THEN
+            return 'home'
+            end = True
+        ELSE
+            IF help button pressed THEN
+                return 'help'
+                end = True
+            END IF
+        END IF
+        END WHILE
+        
+    END WHILE
+END memorise
+
+BEGIN display
+    GET score
+    end = False
+    WHILE not end
+        Display Buttons
+        Display Text
+        IF home_button pressed THEN
+            return 'home'
+            end = True
+        ELSE
+            IF help button pressed THEN
+                return 'help'
+                end = True
+            ELSE
+                IF start button pressed THEN
+                    return 'start'
+                    end = True
+                END IF
+            END IF
+        END IF
+    END WHILE    
+
+END display 
+
+BEGIN repeat
+    GET round_num
+    GET rand
+    end = False
+    WHILE not end
+        Display Buttons
+        Display rand
+        
+        IF character changed THEN
+            Display character
+        END IF
+        
+        IF home_button pressed THEN
+            return 'home'
+            end = True
+        ELSE
+            IF help button pressed THEN
+                return 'help'
+                end = True
+            END IF
+        END IF
+    return 'cont'
+    end = True
+    END WHILE
+END repeat

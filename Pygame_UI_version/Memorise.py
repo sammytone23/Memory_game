@@ -14,7 +14,7 @@ WIDTH = 640
 
 pygame.init()
 
-def Memorise(round_num=1,rand='*cH1;@'):
+def Memorise(round_num=1,rand='*cH1;@',length=10):
   #Setup
   pygame.display.set_caption('Memory')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -62,7 +62,7 @@ def Memorise(round_num=1,rand='*cH1;@'):
     time_delta = clock.tick(60) / 1000.0
     timer+=0.017
     #time the memorising
-    if timer>=6:
+    if timer>=length:
       return 'cont'
     for event in pygame.event.get(): 
       #Check if the x was pressed
@@ -82,7 +82,7 @@ def Memorise(round_num=1,rand='*cH1;@'):
     
     #display the time left
     orig=objects['round_num'].text.split(' ',1)
-    orig[0]=str(floor(6-timer))
+    orig[0]=str(floor(length-timer))
     objects['round_num'].set_text(' '.join(orig))
     manager.update(time_delta)
     window_surface.blit(background, (0, 0))

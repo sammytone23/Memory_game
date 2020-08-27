@@ -1,0 +1,1 @@
+The objective of this project is to make a memory game, where the user must memorise 6 random characters in a limited time (2-20 seconds, where 10 is the default) Users will need to know how to install and how to use ths game. The random characters can be anything that could be input with a keyboard, although it won't be to avoid invalid inputs.
