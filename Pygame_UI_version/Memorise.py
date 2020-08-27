@@ -1,20 +1,22 @@
 #Memorise
-
+#imports
 import pygame
 import pygame_gui
-from math import floor
 
-from home_and_help import  home_btn,help_btn
+from math import floor
 from pygame_gui.elements import UIButton as btn
 from pygame_gui.elements.ui_label import UILabel as lbl
-
+#import my home and help buttons
+from home_and_help import  home_btn,help_btn
+#size
 HEIGHT = 480
 WIDTH = 640
 
 pygame.init()
 
 def Memorise(round_num=1,rand='*cH1;@'):
-  pygame.display.set_caption('Memorise')
+  #Setup
+  pygame.display.set_caption('Memory')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
 
   background = pygame.Surface((WIDTH, HEIGHT))
@@ -25,8 +27,10 @@ def Memorise(round_num=1,rand='*cH1;@'):
   
   clock = pygame.time.Clock()
 
+  #dictionary for objects
   objects = {}
 
+  #create my objects
   objects['home_button'] = home_btn(manager)
   objects['help_button'] = help_btn(manager)
 
@@ -37,6 +41,7 @@ def Memorise(round_num=1,rand='*cH1;@'):
   objects['heading'] = lbl(relative_rect = pygame.Rect((147, 107), (346, 75)),
                           text = 'Memorise!',
                           manager = manager)
+  #create the characters to display 'rand'
   objects['characters']=[]
   positions=[((119,193),(48,100)),((190,193),(48,100)),((261,193),(48,100)),((332,193),(48,100)),((403,193),(48,100)),((474,193),(48,100))]
   for p,c in enumerate(rand):
@@ -50,30 +55,32 @@ def Memorise(round_num=1,rand='*cH1;@'):
                           manager = manager,
                           object_id='small')
 
+  #main loop
   end = False
   timer=-0.017
   while not end:
     time_delta = clock.tick(60) / 1000.0
     timer+=0.017
+    #time the memorising
     if timer>=6:
       return 'cont'
     for event in pygame.event.get(): 
+      #Check if the x was pressed
       if event.type == pygame.QUIT:
-        #print('quit')
         pygame.quit()
 
+      #check if one of my buttons was pressed
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
           if event.ui_element == objects['home_button']:
-            #print('home')
             return 'home'
           if event.ui_element == objects['help_button']:
-            #print('help')
             return 'help'
       
       
       manager.process_events(event)
     
+    #display the time left
     orig=objects['round_num'].text.split(' ',1)
     orig[0]=str(floor(6-timer))
     objects['round_num'].set_text(' '.join(orig))

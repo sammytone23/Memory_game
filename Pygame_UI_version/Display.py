@@ -1,16 +1,20 @@
 #display
+#imports
 import pygame
 import pygame_gui
 
-from home_and_help import  home_btn,help_btn
 from pygame_gui.elements import UIButton as btn
 from pygame_gui.elements.ui_label import UILabel as lbl
+#import my home and help buttons
+from home_and_help import  home_btn,help_btn
 
+#size
 HEIGHT = 480
 WIDTH = 640
 
 pygame.init()
 
+#high score checker
 def high_score(score):
   hs=open('high_score.txt','r').read()
   f=open('high_score.txt','w')
@@ -25,9 +29,10 @@ def high_score(score):
 
 
 
-
+#main function
 def Display(score):
-  pygame.display.set_caption('Home')
+  #setup
+  pygame.display.set_caption('Memory')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
 
   background = pygame.Surface((WIDTH, HEIGHT))
@@ -38,8 +43,10 @@ def Display(score):
   
   clock = pygame.time.Clock()
 
+  #Dictionary for my objects
   objects = {}
 
+  #Create my objects
   objects['help_button'] = help_btn(manager)
   objects['home_button'] = home_btn(manager)
 
@@ -63,24 +70,22 @@ def Display(score):
                           manager = manager,
                           object_id='big_button')
   
+  #main loop
   end = False
   while not end:
     time_delta = clock.tick(60) / 1000.0
     for event in pygame.event.get(): 
+      #check if the x was pressed
       if event.type == pygame.QUIT:
-        #print('quit')
         pygame.quit()
-
+      #check if one of my buttons were pressed
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
           if event.ui_element == objects['help_button']:
-            #print('help')
             return 'help'
           elif event.ui_element == objects['home_button']:
-            #print('home')
             return 'home'
           elif event.ui_element == objects['start_button']:
-            #print('start')
             return 'start'
 
 

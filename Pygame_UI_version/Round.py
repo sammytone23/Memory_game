@@ -1,21 +1,27 @@
 #Round
 
 import Memorise,Repeat,Display
-from random import choice as c
+import random
 
+#random string generator
 def randstr(length):
-  characters = r'''~`1234567890-=qwertyuiop[]asdfghjkl;'\zxcvbnm,./!@#$%^&*()_+QWERTYUIOP{}ASDFGHJKL:"|ZXCVBNM<>?'''
+  characters = '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
   out=''
   for i in range(length):
-    out+=c(characters)
+    #add a random character
+    out+=random.choice(characters)
   return out
 
 def Round(round_num=1):
   rand=randstr(6)
+  #run the memorise screen
   mem=Memorise.Memorise(round_num=round_num,rand=rand)
+  #make sure it's supposed to continue
   if mem!='cont':
     return mem
+  #run the repeat screen
   rep=Repeat.Repeat(round_num=round_num,rand=rand)
+  #make sure it's supposed to continue
   if rep in ['home','help', 'quit']:
     return rep
   return rep

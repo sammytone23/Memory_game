@@ -1,34 +1,26 @@
 #Game manager
-
+#Imports
 import pygame
 import pygame_gui
-import Round,Display
 
 from home_and_help import  home_btn,help_btn
 from pygame_gui.elements import UIButton as btn
 from pygame_gui.elements.ui_label import UILabel as lbl
+#import my screens
+import Round,Display
 
-HEIGHT = 480
-WIDTH = 640
-
-pygame.init()
-
+#main funcction
 def Game():
-  # stage='mem'
-  round_num=1
-
-  # end = False
-  # while not end:
-  #   if stage=='mem':
-  #     stage=Round.main()
-  #   else:
-  #     return stage
+  #gameplay loop
   score=0
   for round_num in range(6):
+    #run the round
     rnd=Round.Round(round_num=round_num)
+    #make sure it's supposed to continue
     if rnd in ['home','help']:
       return rnd
     score+=rnd
+  #Go to the display screen
   disp=Display.Display(score)
   return disp
 
