@@ -27,7 +27,7 @@ def Memorise(round_num=1,rand='*cH1;@'):
 
   objects = {}
 
-  objects['home_btn'] = home_btn(manager)
+  objects['home_button'] = home_btn(manager)
   objects['help_button'] = help_btn(manager)
 
   objects['round_num']=lbl(relative_rect = pygame.Rect((275, 73), (101, 28)),
@@ -51,7 +51,7 @@ def Memorise(round_num=1,rand='*cH1;@'):
                           object_id='small')
 
   end = False
-  timer=0
+  timer=-0.017
   while not end:
     time_delta = clock.tick(60) / 1000.0
     timer+=0.017

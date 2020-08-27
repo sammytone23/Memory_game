@@ -15,9 +15,9 @@ def high_score(score):
   hs=open('high_score.txt','r').read()
   f=open('high_score.txt','w')
   if score>int(hs):
-    f.write(score)
+    f.write(str(score))
     f.close()
-    return score
+    return str(score)
   else:
     f.write(hs)
     f.close()
@@ -93,4 +93,4 @@ def Display(score):
     pygame.display.update()
 
 if __name__ == '__main__':
-  Display(0)
+  Display(2)

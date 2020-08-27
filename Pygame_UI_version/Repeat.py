@@ -34,10 +34,10 @@ def increment_character(ch,inc):
 def arrow_pressed(event,objects):
   for pos in range(len(objects['characters'])):
     if event.ui_element==objects['characters'][pos]['up_button']:
-      out_c=increment_character(objects['characters'][pos]['character'].text,1)
+      out_c=increment_character(objects['characters'][pos]['character'].text,-1)
       return [True,pos,out_c]
     elif event.ui_element==objects['characters'][pos]['down_button']:
-      out_c=increment_character(objects['characters'][pos]['character'].text,-1)
+      out_c=increment_character(objects['characters'][pos]['character'].text,1)
       return [True,pos,out_c]
   return [False]
 

@@ -12,7 +12,7 @@ WIDTH = 640
 
 pygame.init()
 
-def main():
+def Help():
 
   help_text='''1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
 2. Maecenas at quam nec nisi tempor malesuada sit amet eu justo.<br>
