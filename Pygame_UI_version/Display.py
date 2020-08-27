@@ -68,19 +68,19 @@ def Display(score):
     time_delta = clock.tick(60) / 1000.0
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
-        print('quit')
+        #print('quit')
         pygame.quit()
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
           if event.ui_element == objects['help_button']:
-            print('help')
+            #print('help')
             return 'help'
           elif event.ui_element == objects['home_button']:
-            print('home')
+            #print('home')
             return 'home'
           elif event.ui_element == objects['start_button']:
-            print('start')
+            #print('start')
             return 'start'
 
 

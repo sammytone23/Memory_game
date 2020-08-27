@@ -183,5 +183,12 @@
             "bold": "0",
             "italic": "0"
         }
-     } 
+     },
+     "text_box":
+     {
+        "colours":
+        {
+            "dark_bg":"#7C5D7F"
+        }
+     }
  }

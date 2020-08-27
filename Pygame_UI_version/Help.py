@@ -14,18 +14,7 @@ pygame.init()
 
 def Help():
 
-  help_text='''1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-2. Maecenas at quam nec nisi tempor malesuada sit amet eu justo.<br>
-3. Duis in enim vel lorem tincidunt luctus.<br>
-4. Maecenas quis urna vel lacus blandit maximus vel ut elit. <br>
-5. Suspendisse ornare quam non tempor feugiat.<br>
-6. Nullam ac enim at orci vestibulum venenatis sed maximus augue.<br>
-7. Aenean lobortis velit sed gravida tempus.<br>
-<br>
-8. Cras a orci a leo blandit egestas nec eu ligula.<br>
-9. Integer et turpis dapibus, eleifend sem ultricies, congue urna.<br>
-10. Ut consequat massa nec erat molestie auctor.<br>
-11. Sed egestas urna eget dapibus tristique.'''
+  help_text=open('help_text.txt','r').read()
 
   pygame.display.set_caption('Help')
   window_surface = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -55,17 +44,15 @@ def Help():
     time_delta = clock.tick(60) / 1000.0
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
-        print('quit')
+        #print('quit')
         pygame.quit()
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
           if event.ui_element == objects['home_button']:
-            print('home')
+            #print('home')
             return 'home'
-          elif event.ui_element == objects['start_button']:
-            print('start')
-            return 'start'
+          
 
 
 

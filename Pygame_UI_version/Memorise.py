@@ -59,16 +59,16 @@ def Memorise(round_num=1,rand='*cH1;@'):
       return 'cont'
     for event in pygame.event.get(): 
       if event.type == pygame.QUIT:
-        print('quit')
+        #print('quit')
         pygame.quit()
 
       elif event.type == pygame.USEREVENT:
         if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
           if event.ui_element == objects['home_button']:
-            print('home')
+            #print('home')
             return 'home'
           if event.ui_element == objects['help_button']:
-            print('help')
+            #print('help')
             return 'help'
       
       
