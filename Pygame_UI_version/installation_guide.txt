@@ -1,0 +1,6 @@
+Installation guide:
+- Navigate to https://www.python.org/downloads/ and download the latest version.
+- Follow the installation wizard
+- In command line run the command 'pip install pygame'
+- In command line run the command 'pip install pygame_gui'
+- run the file 'Main.py' with python.

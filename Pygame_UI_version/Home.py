@@ -5,6 +5,7 @@ import pygame_gui
 
 from pygame_gui.elements import UIButton as btn
 from pygame_gui.elements.ui_label import UILabel as lbl
+from pygame_gui.elements.ui_horizontal_slider import UIHorizontalSlider as sld
 #My help and home button
 from home_and_help import  home_btn,help_btn
 
@@ -42,6 +43,23 @@ def Home():
                           text = 'Start',
                           manager = manager,
                           object_id='big_button')
+  objects['diff_label'] = lbl(relative_rect = pygame.Rect((283,389),(73,14)),
+                                text = 'Difficulty',
+                                manager=manager,
+                                object_id='tiny')
+  objects['eas_label'] = lbl(relative_rect = pygame.Rect((241,412),(29,14)),
+                                text = 'Easy',
+                                manager=manager,
+                                object_id='tiny')
+  objects['har_label'] = lbl(relative_rect = pygame.Rect((370,412),(29,14)),
+                                text = 'Hard',
+                                manager=manager,
+                                object_id='tiny')
+  objects['diff_sld']= sld(relative_rect=pygame.Rect((270,410),(100,16)),
+                            start_value=10,
+                            value_range=(20,2),
+                            manager=manager,
+                            object_id='sld')
 
   #main loop
   end = False
@@ -57,7 +75,7 @@ def Home():
           if event.ui_element == objects['help_button']:
             return 'help'
           elif event.ui_element == objects['start_button']:
-            return 'start'
+            return ['start',int(objects['diff_sld'].get_current_value())]
       manager.process_events(event)
     
     #draw to screen

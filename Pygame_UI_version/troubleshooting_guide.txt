@@ -1,0 +1,3 @@
+Troubleshooting guide:
+- If any issues are encountered, restart the program.
+- If that doesn't fix it talk to the author.

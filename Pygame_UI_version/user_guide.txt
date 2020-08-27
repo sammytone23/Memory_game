@@ -1,0 +1,35 @@
+What is the aim of this game?
+In this game you have to use your memory, and any tricks you have to remember a 6 character code, and then enter it  into a set of blank boxes. You have one try to get it right, so think hard!
+-
+How long do I have to remember the code?
+You have 6 seconds to remember the code, so think fast!
+-
+How do I select characters?
+With the correct character set selected, scroll through the ordered list of characters to select the one you want to enter
+-
+How do I change between Uppercase and lowercase?
+For each character in the code, there are drop down boxes that you can click to select a different character set.
+-
+Can I use my keyboard to enter the code?
+You can’t use your keyboard in this version. Simply use the drop down boxes to select your answer.
+-
+What types of characters are included in the game?
+There are 4 character sets in the game; Numbers, Lowercase, Uppercase, and Special Characters
+-
+How long do I have to enter my answer?
+There is no time limit on entering your answer, but bear in mind that memory fades, and the longer you take, the less likely you are to remember the code correctly.
+-
+Can I change a character after I’ve selected it?
+Yes! You can change any character in your answer right up until you select Done. Just use the drop downs to select the character set you want to use, and then the character.
+-
+How do I start the game again?
+If you’re at the end of a game, select the Play Again button to start again. If you are anywhere else in the game, select the Home button, and select Start. Good luck!
+-
+Is there a scoreboard for fastest times?
+The game does store the highest score, which is shown to you at the end of the game, alongside your own score.
+-
+Are there levels of difficulty in this game?
+Not yet! This is version 1.0 of the game, and has just one level of difficulty. If the game is a success (tell your friends to download it!) we will build more, and harder levels.
+-
+What happens when I hit the Home icon in the middle of a game?
+Hitting the Home icon at any time takes you back to the home screen, quitting you out of any game you are currently in. It is not possible to re-enter a game.

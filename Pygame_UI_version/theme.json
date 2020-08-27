@@ -97,6 +97,21 @@
             "italic": "0"
         }
      },
+     "tiny":
+     {
+        "colours":
+        {
+            "normal_text":"#3A3B35",
+            "dark_bg":"#5E6059"
+        },
+        "font":
+        {
+            "name":"mono",
+            "size":"12",
+            "bold": "0",
+            "italic": "0"
+        }
+     },
      "med":
      {
         "colours":
@@ -185,6 +200,13 @@
         }
      },
      "text_box":
+     {
+        "colours":
+        {
+            "dark_bg":"#7C5D7F"
+        }
+     },
+     "sld":
      {
         "colours":
         {

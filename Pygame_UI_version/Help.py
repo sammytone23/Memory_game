@@ -1,4 +1,4 @@
-#Home
+#Help
 #imports
 import pygame
 import pygame_gui

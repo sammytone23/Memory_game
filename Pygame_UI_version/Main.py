@@ -1,5 +1,4 @@
 #Main
-difficulty = int(input('difficulty 2-20: '))
 
 #Imports
 import pygame
@@ -40,7 +39,12 @@ while not end:
     dest = Help.Help()
     if dest == 'quit':
       break
-  if dest == 'start':
+  if dest[0] == 'start':
+    difficulty=dest[1]
+    dest = Game.Game(difficulty)
+    if dest == 'quit':
+      break
+  if dest== 'start':
     dest = Game.Game(difficulty)
     if dest == 'quit':
       break
